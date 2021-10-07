@@ -3,7 +3,7 @@ import LoginForm from './components/LoginForm';
 
 
 function App() {
-  const adminUSer = {
+  const adminUser = {
     email: "admin@admin.com",
     password: "admin123"
   }
@@ -13,7 +13,13 @@ function App() {
 
   const Login = details => {
    console.log(details);
+
+    if (details.email == adminUser.email && details.password == adminUser.password)
+    console.log("Logged in"); 
+  } else { 
+    console.log( "Details do not match!");
   }
+}
   const Logout = () => {
     console.log("Logout");
   }
@@ -27,7 +33,7 @@ function App() {
           </div>
 
       ) : (
-        <LoginForm/>
+        <LoginForm Login={Login} error={error}  />
       )}
       
       
